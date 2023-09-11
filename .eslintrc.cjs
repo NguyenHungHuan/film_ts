@@ -31,6 +31,7 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-no-target-blank': 'warn',
+    '@typescript-eslint/no-unused-vars': 'warn',
     'prettier/prettier': [
       'warn',
       {
