@@ -1,24 +1,31 @@
 import { Card, Filter } from 'src/components'
 import { useQuery } from 'react-query'
-import { Link } from 'react-router-dom'
+import { Link, createSearchParams } from 'react-router-dom'
 import filmApis from 'src/apis/filmApis'
+import { useQueryConfig } from 'src/hooks'
+import PATH from 'src/utils/path'
 
 const Home = () => {
+  const queryConfig = useQueryConfig()
   const { data: dataSeries } = useQuery({
-    queryKey: ['phim-bo-recommendo'],
-    queryFn: () => filmApis.getListFilm('phim-bo', { sort_field: 'view', year: '2023' })
+    queryKey: ['phim-bo-recommend'],
+    queryFn: () => filmApis.getListFilm('phim-bo', { sort_field: 'view', year: '2023' }),
+    staleTime: 3 * 60 * 1000
   })
   const { data: dataOdd } = useQuery({
     queryKey: ['phim-le-recommend'],
-    queryFn: () => filmApis.getListFilm('phim-le', { sort_field: 'view', year: '2023' })
+    queryFn: () => filmApis.getListFilm('phim-le', { sort_field: 'view', year: '2023' }),
+    staleTime: 3 * 60 * 1000
   })
   const { data: dataSeriesNew } = useQuery({
-    queryKey: ['phim-bo'],
-    queryFn: () => filmApis.getListFilm('phim-bo')
+    queryKey: ['phim-bo', queryConfig],
+    queryFn: () => filmApis.getListFilm('phim-bo', queryConfig),
+    staleTime: 3 * 60 * 1000
   })
   const { data: dataOddNew } = useQuery({
-    queryKey: ['phim-le'],
-    queryFn: () => filmApis.getListFilm('phim-le')
+    queryKey: ['phim-le', queryConfig],
+    queryFn: () => filmApis.getListFilm('phim-le', queryConfig),
+    staleTime: 3 * 60 * 1000
   })
 
   const dataFilmSeries = dataSeries?.data.data
@@ -47,7 +54,7 @@ const Home = () => {
         </div>
       </div>
       <div className='mt-8'>
-        {title({ title: 'Phim bộ mới cập nhật', link: '/' })}
+        {title({ title: 'Phim lẻ mới cập nhật', link: `${PATH.odd}` })}
         <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
           {dataFilmOddNew?.items
             .slice(0, 10)
@@ -57,7 +64,7 @@ const Home = () => {
         </div>
       </div>
       <div className='mt-8'>
-        {title({ title: 'Phim bộ mới cập nhật', link: '/' })}
+        {title({ title: 'Phim bộ mới cập nhật', link: `${PATH.series}` })}
         <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
           {dataFilmSeriesNew?.items
             .slice(0, 10)
@@ -86,7 +93,19 @@ const title = ({
         <span>{title}</span>
       </h2>
       {!isHiddenArrow && (
-        <Link to={link} className='text-white/80 hover:text-white text-lg p-1'>
+        <Link
+          to={{
+            pathname: `${PATH.list}${link}`,
+            search: createSearchParams({
+              page: '1',
+              sort_field: '',
+              category: '',
+              country: '',
+              year: ''
+            }).toString()
+          }}
+          className='text-white/80 hover:text-white text-lg p-1'
+        >
           Xem tất cả
           <svg
             className='ml-1 w-2 h-[17px] fill-current inline'

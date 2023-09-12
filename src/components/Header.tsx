@@ -3,11 +3,9 @@ import PATH from '../utils/path'
 import { useEffect, useState } from 'react'
 import iconSearch from '../../public/icon_search.webp'
 import classNames from 'classnames'
-import { useQueryConfig } from '../hooks'
 import { Navbar } from '.'
 
 const Header = () => {
-  const queryConfig = useQueryConfig()
   const { pathname } = useLocation()
   const [OpenNav, setOpenNav] = useState<boolean>(false)
 
@@ -17,7 +15,7 @@ const Header = () => {
 
   useEffect(() => {
     setOpenNav(false)
-  }, [pathname, queryConfig.keyword])
+  }, [pathname])
 
   return (
     <header className='bg-[#06121e] text-white sticky top-0 z-20 left-0 right-0'>

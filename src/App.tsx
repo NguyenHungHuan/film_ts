@@ -4,6 +4,7 @@ import { lazy, Suspense } from 'react'
 import { MainLayout } from './layouts'
 
 const Home = lazy(() => import('./pages/Home'))
+const List = lazy(() => import('./pages/List'))
 
 function App() {
   const router = createBrowserRouter([
@@ -18,6 +19,14 @@ function App() {
           element: (
             <Suspense fallback={<LoadingPage />}>
               <Home />
+            </Suspense>
+          )
+        },
+        {
+          path: `${PATH.list}/${PATH.type}`,
+          element: (
+            <Suspense fallback={<LoadingPage />}>
+              <List />
             </Suspense>
           )
         }

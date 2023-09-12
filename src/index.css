@@ -22,12 +22,7 @@ html ::-webkit-scrollbar-track {
 }
 
 html ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 8px;
-}
-
-html.dark ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgb(100, 99, 99);
   border-radius: 8px;
 }
 

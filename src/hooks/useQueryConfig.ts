@@ -7,8 +7,14 @@ export default function useQueryConfig() {
     sort_field: queryParams.sort_field || 'modified.time',
     category: queryParams.category || '',
     country: queryParams.country || '',
-    year: queryParams.year || '',
-    keyword: queryParams.keyword
+    year: queryParams.year || ''
   }
   return queryConfig
+}
+export type paramOption = {
+  page: string
+  sort_field: string
+  category: string
+  country: string
+  year: string
 }

@@ -1,7 +1,9 @@
+import { useQueryConfig } from 'src/hooks'
 import PATH from '../utils/path'
-import { Link, NavLink, createSearchParams } from 'react-router-dom'
+import { NavLink, createSearchParams } from 'react-router-dom'
 
 const Navbar = () => {
+  const queryConfig = useQueryConfig()
   return (
     <nav className='text-white'>
       <ul className='flex items-center'>
@@ -9,7 +11,7 @@ const Navbar = () => {
           <NavLink
             title='Tìm phim miễn phí'
             to={{
-              pathname: PATH.search,
+              pathname: `${PATH.list}${PATH.search}`,
               search: createSearchParams({
                 page: '1'
               }).toString()
@@ -30,7 +32,7 @@ const Navbar = () => {
           <NavLink
             title='Xem phim đa thể loại'
             to={{
-              pathname: PATH.hot,
+              pathname: `${PATH.list}${PATH.hot}`,
               search: createSearchParams({
                 page: '1'
               }).toString()
@@ -46,9 +48,13 @@ const Navbar = () => {
           <NavLink
             title='Xem phim đa thể loại'
             to={{
-              pathname: PATH.new,
+              pathname: `${PATH.list}${PATH.new}`,
               search: createSearchParams({
-                page: '1'
+                page: '1',
+                sort_field: '',
+                category: '',
+                country: '',
+                year: ''
               }).toString()
             }}
             className={({ isActive }) =>
@@ -62,9 +68,13 @@ const Navbar = () => {
           <NavLink
             title='Xem phim bộ hay nhất'
             to={{
-              pathname: PATH.series,
+              pathname: `${PATH.list}${PATH.series}`,
               search: createSearchParams({
-                page: '1'
+                page: '1',
+                sort_field: '',
+                category: '',
+                country: '',
+                year: ''
               }).toString()
             }}
             className={({ isActive }) =>
@@ -78,9 +88,13 @@ const Navbar = () => {
           <NavLink
             title='Xem phim lẻ hay nhất'
             to={{
-              pathname: PATH.odd,
+              pathname: `${PATH.list}${PATH.odd}`,
               search: createSearchParams({
-                page: '1'
+                page: '1',
+                sort_field: '',
+                category: '',
+                country: '',
+                year: ''
               }).toString()
             }}
             className={({ isActive }) =>
@@ -94,9 +108,13 @@ const Navbar = () => {
           <NavLink
             title='Xem phim đa quốc gia'
             to={{
-              pathname: PATH.tvShows,
+              pathname: `${PATH.list}${PATH.tvShows}`,
               search: createSearchParams({
-                page: '1'
+                page: '1',
+                sort_field: '',
+                category: '',
+                country: '',
+                year: ''
               }).toString()
             }}
             className={({ isActive }) =>
@@ -110,9 +128,13 @@ const Navbar = () => {
           <NavLink
             title='Xem phim chiếu rạp hay nhất'
             to={{
-              pathname: PATH.anime,
+              pathname: `${PATH.list}${PATH.anime}`,
               search: createSearchParams({
-                page: '1'
+                page: '1',
+                sort_field: '',
+                category: '',
+                country: '',
+                year: ''
               }).toString()
             }}
             className={({ isActive }) =>
