@@ -81,7 +81,7 @@ const Filter = () => {
             onChange={(value) => handleChangeType(value)}
             name='type of film'
             id='typeFilm'
-            className='appearance-none w-full rounded-md outline-none py-[7px] pl-[11px] pr-[40px]'
+            className='cursor-pointer appearance-none w-full rounded-md outline-none py-[7px] pl-[11px] pr-[40px]'
             value={type}
           >
             <option value='phim-moi'>- Tất cả -</option>
@@ -101,7 +101,7 @@ const Filter = () => {
             onChange={(value) => handleChangeCategory(value)}
             name='genre of film'
             id='genreFilm'
-            className='appearance-none w-full rounded-md outline-none py-[7px] pl-[11px] pr-[40px]'
+            className='cursor-pointer appearance-none w-full rounded-md outline-none py-[7px] pl-[11px] pr-[40px]'
             value={queryConfig.category}
           >
             <option value=''>- Tất cả -</option>
@@ -124,7 +124,7 @@ const Filter = () => {
             value={queryConfig.country}
             name='country of film'
             id='countryFilm'
-            className='appearance-none w-full rounded-md outline-none py-[7px] pl-[11px] pr-[40px]'
+            className='cursor-pointer appearance-none w-full rounded-md outline-none py-[7px] pl-[11px] pr-[40px]'
           >
             <option value=''>- Tất cả -</option>
             {dataCountries &&
@@ -146,7 +146,7 @@ const Filter = () => {
             value={queryConfig.year}
             name='year of film'
             id='yearFilm'
-            className='appearance-none w-full rounded-md outline-none py-[7px] pl-[11px] pr-[40px]'
+            className='cursor-pointer appearance-none w-full rounded-md outline-none py-[7px] pl-[11px] pr-[40px]'
           >
             <option value=''>- Tất cả -</option>
             {Array(14)
@@ -169,7 +169,7 @@ const Filter = () => {
             value={queryConfig.sort_field}
             name='sort film'
             id='sortFilm'
-            className='appearance-none w-full rounded-md outline-none py-[7px] pl-[11px] pr-[40px]'
+            className='cursor-pointer appearance-none w-full rounded-md outline-none py-[7px] pl-[11px] pr-[40px]'
           >
             <option value='modified.time'>Ngày cập nhật</option>
             <option value='year'>Ngày phát hành</option>

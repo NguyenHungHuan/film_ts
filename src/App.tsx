@@ -5,6 +5,9 @@ import { MainLayout } from './layouts'
 
 const Home = lazy(() => import('./pages/Home'))
 const List = lazy(() => import('./pages/List'))
+const Hot = lazy(() => import('./pages/Hot'))
+const Search = lazy(() => import('./pages/Search'))
+const Detail = lazy(() => import('./pages/Detail'))
 
 function App() {
   const router = createBrowserRouter([
@@ -27,6 +30,43 @@ function App() {
           element: (
             <Suspense fallback={<LoadingPage />}>
               <List />
+            </Suspense>
+          )
+        },
+        {
+          path: PATH.hot,
+          element: (
+            <Suspense fallback={<LoadingPage />}>
+              <Hot />
+            </Suspense>
+          )
+        },
+        {
+          path: PATH.search,
+          element: (
+            <Suspense fallback={<LoadingPage />}>
+              <Search />
+            </Suspense>
+          )
+        },
+        {
+          path: `${PATH.film}/${PATH.slug}`,
+          element: (
+            <Suspense fallback={<LoadingPage />}>
+              <Detail />
+            </Suspense>
+          )
+        }
+      ]
+    },
+    {
+      element: <MainLayout />,
+      children: [
+        {
+          path: '*',
+          element: (
+            <Suspense fallback={<LoadingPage />}>
+              <NotFound />
             </Suspense>
           )
         }

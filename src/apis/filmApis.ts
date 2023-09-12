@@ -8,7 +8,6 @@ export type paramOption = {
   category?: string
   country?: string
   year?: string
-  keyword?: string
 }
 
 const filmApis = {
@@ -22,6 +21,10 @@ const filmApis = {
   },
   getListFilm(type: string, params?: paramOption) {
     const url = `${PATH.list}/${type}`
+    return axiosClients.get<data<list>>(url, { params })
+  },
+  getSearchFilm(params: { keyword: string; page: string }) {
+    const url = PATH.search
     return axiosClients.get<data<list>>(url, { params })
   }
 }

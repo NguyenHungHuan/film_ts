@@ -18,7 +18,7 @@ const Header = () => {
   }, [pathname])
 
   return (
-    <header className='bg-[#06121e] text-white sticky top-0 z-20 left-0 right-0'>
+    <header className='bg-transparent text-white sticky top-0 z-20 left-0 right-0'>
       <div className='px-8 h-[56px] overflow-hidden flex items-center justify-between'>
         <div className='h-full flex items-center gap-4'>
           <Link
@@ -31,7 +31,7 @@ const Header = () => {
               })
             }
           >
-            <h1 title='Web xem phim Việt Nam' className='font-bold text-4xl text-rose-600'>
+            <h1 title='Web xem phim miễn phí lớn nhất Việt Nam' className='font-bold text-4xl text-rose-600'>
               VPhim
             </h1>
           </Link>

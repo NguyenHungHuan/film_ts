@@ -5,7 +5,37 @@ export interface data<Data> {
 }
 
 export type option = {
-  items: [{ name: string; slug: string; _id: string }]
+  items: { name: string; slug: string; _id: string }[]
+}
+
+export type items = {
+  modified: {
+    time: string
+  }
+  _id: string
+  name: string
+  slug: string
+  origin_name: string
+  type: string
+  thumb_url: string
+  poster_url: string
+  sub_docquyen: boolean
+  chieurap: boolean
+  time: string
+  episode_current: string
+  quality: string
+  lang: string
+  year: number
+  category: {
+    id: string
+    name: string
+    slug: string
+  }[]
+  country: {
+    id: string
+    name: string
+    slug: string
+  }[]
 }
 
 export type list = {
@@ -16,54 +46,18 @@ export type list = {
     og_image: [string]
     og_url: string
   }
-  breadCrumb: [
-    {
-      name: string
-      slug: string
-      isCurrent: boolean
-      position: number
-    }
-  ]
+  breadCrumb: {
+    name: string
+    slug: string
+    isCurrent: boolean
+    position: number
+  }[]
   titlePage: string
-  items: [
-    {
-      modified: {
-        time: string
-      }
-      _id: string
-      name: string
-      slug: string
-      origin_name: string
-      type: string
-      thumb_url: string
-      poster_url: string
-      sub_docquyen: boolean
-      chieurap: boolean
-      time: string
-      episode_current: string
-      quality: string
-      lang: string
-      year: number
-      category: [
-        {
-          id: string
-          name: string
-          slug: string
-        }
-      ]
-      country: [
-        {
-          id: string
-          name: string
-          slug: string
-        }
-      ]
-    }
-  ]
+  items: items[]
   params: {
     type_slug: string
-    filterCategory: [string]
-    filterCountry: [string]
+    filterCategory: string[]
+    filterCountry: string[]
     filterYear: string
     filterType: string
     sortField: string

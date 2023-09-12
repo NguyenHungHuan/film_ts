@@ -28,7 +28,7 @@ const List = () => {
           <div className='mt-4'>
             <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
               {dataFilm.items.map((item) => (
-                <Card key={item._id} thumb_url={item.thumb_url} name={item.name} origin_name={item.origin_name} />
+                <Card key={item._id} data={item} />
               ))}
             </div>
           </div>

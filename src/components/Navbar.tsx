@@ -3,16 +3,16 @@ import PATH from '../utils/path'
 import { NavLink, createSearchParams } from 'react-router-dom'
 
 const Navbar = () => {
-  const queryConfig = useQueryConfig()
   return (
     <nav className='text-white'>
       <ul className='flex items-center'>
         <li>
           <NavLink
-            title='Tìm phim miễn phí'
+            title='Tìm phim miễn phí tại VPhim'
             to={{
-              pathname: `${PATH.list}${PATH.search}`,
+              pathname: PATH.search,
               search: createSearchParams({
+                keyword: '',
                 page: '1'
               }).toString()
             }}
@@ -30,13 +30,8 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            title='Xem phim đa thể loại'
-            to={{
-              pathname: `${PATH.list}${PATH.hot}`,
-              search: createSearchParams({
-                page: '1'
-              }).toString()
-            }}
+            title='Xem phim hot nhất tại VPhim'
+            to={PATH.hot}
             className={({ isActive }) =>
               `font-semibold text-lg hover:text-blue-600 hover:bg-blue-600/20 px-2 py-4 ${isActive && ' text-blue-600'}`
             }
@@ -46,7 +41,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            title='Xem phim đa thể loại'
+            title='Xem phim mới nhất tại VPhim'
             to={{
               pathname: `${PATH.list}${PATH.new}`,
               search: createSearchParams({
@@ -66,7 +61,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            title='Xem phim bộ hay nhất'
+            title='Xem phim bộ hay nhất tại VPhim'
             to={{
               pathname: `${PATH.list}${PATH.series}`,
               search: createSearchParams({
@@ -86,7 +81,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            title='Xem phim lẻ hay nhất'
+            title='Xem phim lẻ hay nhất tại VPhim'
             to={{
               pathname: `${PATH.list}${PATH.odd}`,
               search: createSearchParams({
@@ -101,12 +96,12 @@ const Navbar = () => {
               `font-semibold text-lg hover:text-blue-600 hover:bg-blue-600/20 px-2 py-4 ${isActive && ' text-blue-600'}`
             }
           >
-            Phim lẻ
+            Phim Lẻ
           </NavLink>
         </li>
         <li>
           <NavLink
-            title='Xem phim đa quốc gia'
+            title='Xem tv shows hay nhất tại VPhim'
             to={{
               pathname: `${PATH.list}${PATH.tvShows}`,
               search: createSearchParams({
@@ -126,7 +121,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            title='Xem phim chiếu rạp hay nhất'
+            title='Xem phim hoạt hình hay nhất tại VPhim'
             to={{
               pathname: `${PATH.list}${PATH.anime}`,
               search: createSearchParams({

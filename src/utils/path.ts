@@ -2,7 +2,8 @@ const PATH = {
   home: '/',
   list: '/danh-sach',
   type: ':type',
-  search: '/search',
+  slug: ':slug',
+  search: '/tim-kiem',
   new: '/phim-moi',
   series: '/phim-bo',
   odd: '/phim-le',
@@ -11,7 +12,8 @@ const PATH = {
   genres: '/the-loai',
   country: '/quoc-gia',
   cinema: '/cinema',
-  hot: '/hot'
+  hot: '/hot',
+  film: '/phim'
 } as const
 
 export default PATH

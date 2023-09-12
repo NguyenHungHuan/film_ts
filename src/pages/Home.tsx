@@ -8,23 +8,23 @@ import PATH from 'src/utils/path'
 const Home = () => {
   const queryConfig = useQueryConfig()
   const { data: dataSeries } = useQuery({
-    queryKey: ['phim-bo-recommend'],
-    queryFn: () => filmApis.getListFilm('phim-bo', { sort_field: 'view', year: '2023' }),
+    queryKey: [PATH.series, { ...queryConfig, sort_field: 'view', year: '2023' }],
+    queryFn: () => filmApis.getListFilm(PATH.series, { ...queryConfig, sort_field: 'view', year: '2023' }),
     staleTime: 3 * 60 * 1000
   })
   const { data: dataOdd } = useQuery({
-    queryKey: ['phim-le-recommend'],
-    queryFn: () => filmApis.getListFilm('phim-le', { sort_field: 'view', year: '2023' }),
+    queryKey: [PATH.odd, { ...queryConfig, sort_field: 'view', year: '2023' }],
+    queryFn: () => filmApis.getListFilm(PATH.odd, { ...queryConfig, sort_field: 'view', year: '2023' }),
     staleTime: 3 * 60 * 1000
   })
   const { data: dataSeriesNew } = useQuery({
-    queryKey: ['phim-bo', queryConfig],
-    queryFn: () => filmApis.getListFilm('phim-bo', queryConfig),
+    queryKey: [PATH.series, queryConfig],
+    queryFn: () => filmApis.getListFilm(PATH.series, queryConfig),
     staleTime: 3 * 60 * 1000
   })
   const { data: dataOddNew } = useQuery({
-    queryKey: ['phim-le', queryConfig],
-    queryFn: () => filmApis.getListFilm('phim-le', queryConfig),
+    queryKey: [PATH.odd, queryConfig],
+    queryFn: () => filmApis.getListFilm(PATH.odd, queryConfig),
     staleTime: 3 * 60 * 1000
   })
 
@@ -40,37 +40,21 @@ const Home = () => {
         {title({ title: 'Phim đề cử', isHiddenArrow: true })}
         <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
           <>
-            {dataFilmSeries?.items
-              .slice(0, 5)
-              .map((item) => (
-                <Card key={item._id} thumb_url={item.thumb_url} name={item.name} origin_name={item.origin_name} />
-              ))}
-            {dataFilmOdd?.items
-              .slice(0, 5)
-              .map((item) => (
-                <Card key={item._id} thumb_url={item.thumb_url} name={item.name} origin_name={item.origin_name} />
-              ))}
+            {dataFilmSeries?.items.slice(0, 5).map((item) => <Card key={item._id} data={item} />)}
+            {dataFilmOdd?.items.slice(0, 5).map((item) => <Card key={item._id} data={item} />)}
           </>
         </div>
       </div>
       <div className='mt-8'>
         {title({ title: 'Phim lẻ mới cập nhật', link: `${PATH.odd}` })}
         <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
-          {dataFilmOddNew?.items
-            .slice(0, 10)
-            .map((item) => (
-              <Card key={item._id} thumb_url={item.thumb_url} name={item.name} origin_name={item.origin_name} />
-            ))}
+          {dataFilmOddNew?.items.slice(0, 10).map((item) => <Card key={item._id} data={item} />)}
         </div>
       </div>
       <div className='mt-8'>
         {title({ title: 'Phim bộ mới cập nhật', link: `${PATH.series}` })}
         <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
-          {dataFilmSeriesNew?.items
-            .slice(0, 10)
-            .map((item) => (
-              <Card key={item._id} thumb_url={item.thumb_url} name={item.name} origin_name={item.origin_name} />
-            ))}
+          {dataFilmSeriesNew?.items.slice(0, 10).map((item) => <Card key={item._id} data={item} />)}
         </div>
       </div>
     </div>
@@ -98,7 +82,7 @@ const title = ({
             pathname: `${PATH.list}${link}`,
             search: createSearchParams({
               page: '1',
-              sort_field: '',
+              sort_field: 'modified.time',
               category: '',
               country: '',
               year: ''

@@ -10,6 +10,7 @@ html {
   margin: 0;
   user-select: none;
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 html ::-webkit-scrollbar {
