@@ -4,6 +4,7 @@ import { Link, createSearchParams } from 'react-router-dom'
 import filmApis from 'src/apis/filmApis'
 import { useQueryConfig } from 'src/hooks'
 import PATH from 'src/utils/path'
+import { Helmet } from 'react-helmet-async'
 
 const Home = () => {
   const queryConfig = useQueryConfig()
@@ -34,30 +35,39 @@ const Home = () => {
   const dataFilmOddNew = dataOddNew?.data.data
 
   return (
-    <div className='container mt-[45px]'>
-      <Filter />
-      <div className='mt-4'>
-        {title({ title: 'Phim đề cử', isHiddenArrow: true })}
-        <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
-          <>
-            {dataFilmSeries?.items.slice(0, 5).map((item) => <Card key={item._id} data={item} />)}
-            {dataFilmOdd?.items.slice(0, 5).map((item) => <Card key={item._id} data={item} />)}
-          </>
+    <>
+      <Helmet>
+        <title>Xem phim Online miễn phí - VPhim</title>
+        <meta
+          name='description'
+          content='Web xem phim online miễn phí lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia xem phim và thảo luận với hơn 10 triệu thành viên 🎉 tại VPhim ❤️💛💚'
+        />
+      </Helmet>
+      <div className='container mt-[45px]'>
+        <Filter />
+        <div className='mt-4'>
+          {title({ title: 'Phim đề cử', isHiddenArrow: true })}
+          <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
+            <>
+              {dataFilmSeries?.items.slice(0, 5).map((item) => <Card key={item._id} data={item} />)}
+              {dataFilmOdd?.items.slice(0, 5).map((item) => <Card key={item._id} data={item} />)}
+            </>
+          </div>
+        </div>
+        <div className='mt-8'>
+          {title({ title: 'Phim lẻ mới cập nhật', link: `${PATH.odd}` })}
+          <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
+            {dataFilmOddNew?.items.slice(0, 10).map((item) => <Card key={item._id} data={item} />)}
+          </div>
+        </div>
+        <div className='mt-8'>
+          {title({ title: 'Phim bộ mới cập nhật', link: `${PATH.series}` })}
+          <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
+            {dataFilmSeriesNew?.items.slice(0, 10).map((item) => <Card key={item._id} data={item} />)}
+          </div>
         </div>
       </div>
-      <div className='mt-8'>
-        {title({ title: 'Phim lẻ mới cập nhật', link: `${PATH.odd}` })}
-        <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
-          {dataFilmOddNew?.items.slice(0, 10).map((item) => <Card key={item._id} data={item} />)}
-        </div>
-      </div>
-      <div className='mt-8'>
-        {title({ title: 'Phim bộ mới cập nhật', link: `${PATH.series}` })}
-        <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
-          {dataFilmSeriesNew?.items.slice(0, 10).map((item) => <Card key={item._id} data={item} />)}
-        </div>
-      </div>
-    </div>
+    </>
   )
 }
 export default Home

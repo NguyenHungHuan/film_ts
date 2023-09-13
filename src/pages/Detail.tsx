@@ -5,6 +5,7 @@ import filmApis from 'src/apis/filmApis'
 import { useQueryConfig } from 'src/hooks'
 import PATH from 'src/utils/path'
 import { Fragment, useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 
 const Detail = () => {
   const [openModal, setOpenModal] = useState<boolean>(false)
@@ -21,6 +22,10 @@ const Detail = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{`VPhim | ${dataFilm?.seoOnPage.titleHead}`}</title>
+        <meta name='description' content={`${dataFilm?.seoOnPage.descriptionHead} | Xem phim miễn phí tại VPhim`} />
+      </Helmet>
       <div
         className='h-[600px] -mt-[56px] bg-cover bg-no-repeat bg-[50%_0] relative before:content-[""] before:absolute before:w-full before:top-0 before:bottom-0 before:bg-[#020d18bf]'
         style={{
@@ -245,5 +250,4 @@ const Detail = () => {
     </>
   )
 }
-
 export default Detail

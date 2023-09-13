@@ -1,0 +1,36 @@
+{
+  "name": "VPhim",
+  "short_name": "VPhim",
+  "description": "Web xem phim online miễn phí lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia xem phim và thảo luận với hơn 10 triệu thành viên 🎉 tại VPhim ❤️💛💚",
+  "author": "VPhim - NguyenHungHuan",
+  "theme_color": "#06121e",
+  "background_color": "#06121e",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "browser_action": {
+    "default_title": "VPhim"
+  },
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

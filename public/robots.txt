@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host 
+Host: https://vphim.vercel.app
+
+# Sitemaps
+Sitemap: https://vphim.vercel.app/sitemap.xml
