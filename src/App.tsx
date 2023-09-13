@@ -8,6 +8,7 @@ const List = lazy(() => import('./pages/List'))
 const Hot = lazy(() => import('./pages/Hot'))
 const Search = lazy(() => import('./pages/Search'))
 const Detail = lazy(() => import('./pages/Detail'))
+const Film = lazy(() => import('./pages/Film'))
 
 function App() {
   const router = createBrowserRouter([
@@ -54,6 +55,14 @@ function App() {
           element: (
             <Suspense fallback={<LoadingPage />}>
               <Detail />
+            </Suspense>
+          )
+        },
+        {
+          path: `${PATH.watch}/${PATH.slug}`,
+          element: (
+            <Suspense fallback={<LoadingPage />}>
+              <Film />
             </Suspense>
           )
         }

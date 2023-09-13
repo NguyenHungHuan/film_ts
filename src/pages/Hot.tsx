@@ -1,7 +1,7 @@
 import { Card } from 'src/components'
 import { useQuery } from 'react-query'
 import filmApis from 'src/apis/filmApis'
-import { useQueryConfig } from 'src/hooks'
+import { useQueryConfig, useScrollTop } from 'src/hooks'
 import { useState } from 'react'
 import classNames from 'classnames'
 
@@ -20,6 +20,8 @@ const Hot = () => {
   })
   const dataFilmHotPage1 = dataHotPage1?.data.data
   const dataFilmHotPage2 = dataHotPage2?.data.data
+
+  useScrollTop([queryConfig, type])
 
   return (
     <div className='container mt-14'>

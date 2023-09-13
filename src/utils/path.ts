@@ -1,6 +1,7 @@
 const PATH = {
   home: '/',
   list: '/danh-sach',
+  watch: '/xem-phim',
   type: ':type',
   slug: ':slug',
   search: '/tim-kiem',

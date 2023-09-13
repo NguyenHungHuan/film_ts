@@ -8,7 +8,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['Oswald', 'sans-serif']
+        display: ['Oswald', 'sans-serif'],
+        heading1: ['Merriweather', 'serif']
       }
     }
   },

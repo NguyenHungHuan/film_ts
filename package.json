@@ -15,6 +15,7 @@
   "dependencies": {
     "axios": "^1.5.0",
     "classnames": "^2.3.2",
+    "dompurify": "^3.0.5",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -23,6 +24,7 @@
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
+    "@types/dompurify": "^3.0.2",
     "@types/lodash": "^4.14.198",
     "@types/node": "^20.6.0",
     "@types/react": "^18.2.15",

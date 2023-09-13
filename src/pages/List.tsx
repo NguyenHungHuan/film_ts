@@ -15,7 +15,6 @@ const List = () => {
     enabled: type !== '',
     staleTime: 3 * 60 * 1000
   })
-
   const dataFilm = data?.data.data
 
   useScrollTop([queryConfig, type])

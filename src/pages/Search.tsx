@@ -1,7 +1,7 @@
 import { Card } from 'src/components'
 import { useQuery } from 'react-query'
 import filmApis from 'src/apis/filmApis'
-import { useQueryConfig } from 'src/hooks'
+import { useQueryConfig, useScrollTop } from 'src/hooks'
 import Pagination from 'src/components/Pagination'
 import { useNavigate, createSearchParams } from 'react-router-dom'
 import PATH from 'src/utils/path'
@@ -15,6 +15,8 @@ const Search = () => {
     staleTime: 3 * 60 * 1000
   })
   const dataSearch = data?.data.data
+
+  useScrollTop([queryConfig])
 
   return (
     <div className='container mt-14'>

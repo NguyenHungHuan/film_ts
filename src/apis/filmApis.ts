@@ -1,4 +1,4 @@
-import { data, list, option } from 'src/types'
+import { data, film, list, option } from 'src/types'
 import PATH from '../utils/path'
 import { axiosClients } from './axiosClients'
 
@@ -26,6 +26,10 @@ const filmApis = {
   getSearchFilm(params: { keyword: string; page: string }) {
     const url = PATH.search
     return axiosClients.get<data<list>>(url, { params })
+  },
+  getFilm(slug: string) {
+    const url = `${PATH.film}/${slug}`
+    return axiosClients.get<data<film>>(url)
   }
 }
 export default filmApis
