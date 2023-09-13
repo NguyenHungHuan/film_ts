@@ -9,7 +9,7 @@ const List = () => {
   const { type } = useParams()
   const queryConfig = useQueryConfig()
 
-  const { data, isError } = useQuery({
+  const { data } = useQuery({
     queryKey: [type, queryConfig],
     queryFn: () => filmApis.getListFilm(type as string, queryConfig),
     enabled: type !== '',

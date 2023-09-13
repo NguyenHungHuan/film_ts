@@ -1,4 +1,3 @@
-import { useQueryConfig } from 'src/hooks'
 import PATH from '../utils/path'
 import { NavLink, createSearchParams } from 'react-router-dom'
 
