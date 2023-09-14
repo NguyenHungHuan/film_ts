@@ -73,9 +73,9 @@ export default function Pagination({ page, totalPage, queryConfig }: Props) {
       })
   }
   return (
-    <div className='flex items-center justify-between'>
-      <div className='flex flex-wrap items-center justify-between gap-1 gap-y-2'>{renderPagination()}</div>
-      <div className='flex items-center gap-2'>
+    <div className='flex items-center justify-center lg:justify-between'>
+      <div className='flex flex-wrap items-center md:justify-between gap-1 gap-y-2'>{renderPagination()}</div>
+      <div className='items-center gap-2 hidden lg:flex'>
         {page === 1 ? (
           <span className='cursor-default rounded border border-gray-500 opacity-60 px-4 py-2 text-gray-300 shadow-sm flex items-center justify-center'>
             Trang trước

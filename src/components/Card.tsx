@@ -7,10 +7,10 @@ const Card = ({ data }: { data: items }) => {
     <Link to={`${PATH.film}/${data.slug}`} className='relative' title={data.name}>
       <img
         title={data.name}
-        loading='lazy'
+        loading='eager'
         src={`https://img.hiephanhthienha.com/uploads/movies/${data.thumb_url}`}
         alt={data.name}
-        className='h-[384px] w-full object-cover mb-1'
+        className='h-[210px] sm:h-[384px] w-full object-cover mb-1'
       />
       <span className='text-white text-sm p-[2px] px-2 rounded-[4px] bg-yellow-600/80 absolute top-2 left-1'>
         {data.episode_current}

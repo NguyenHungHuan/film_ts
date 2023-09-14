@@ -71,7 +71,7 @@ const Filter = () => {
   }
 
   return (
-    <div className='bg-[#0e274073] py-4 px-[22px] grid grid-cols-5 items-center gap-[22px] rounded-md'>
+    <div className='bg-[#0e274073] py-4 px-[22px] grid grid-cols-2 md:grid-cols-5 items-center gap-[22px] rounded-md'>
       <div className='text-lg flex flex-col'>
         <label htmlFor='typeFilm' className='mb-2 text-white'>
           Loại phim:

@@ -5,17 +5,48 @@ import filmApis from 'src/apis/filmApis'
 import { useQueryConfig } from 'src/hooks'
 import PATH from 'src/utils/path'
 import { Helmet } from 'react-helmet-async'
+import { useMemo } from 'react'
 
 const Home = () => {
   const queryConfig = useQueryConfig()
+  const newYear = useMemo(
+    () =>
+      new Date().getMonth() + 1 < 4 ? (new Date().getFullYear() - 1).toString() : new Date().getFullYear().toString(),
+    []
+  )
+
   const { data: dataSeries } = useQuery({
-    queryKey: [PATH.series, { ...queryConfig, sort_field: 'view', year: '2023' }],
-    queryFn: () => filmApis.getListFilm(PATH.series, { ...queryConfig, sort_field: 'view', year: '2023' }),
+    queryKey: [
+      PATH.series,
+      {
+        ...queryConfig,
+        sort_field: 'view',
+        year: newYear
+      }
+    ],
+    queryFn: () =>
+      filmApis.getListFilm(PATH.series, {
+        ...queryConfig,
+        sort_field: 'view',
+        year: newYear
+      }),
     staleTime: 3 * 60 * 1000
   })
   const { data: dataOdd } = useQuery({
-    queryKey: [PATH.odd, { ...queryConfig, sort_field: 'view', year: '2023' }],
-    queryFn: () => filmApis.getListFilm(PATH.odd, { ...queryConfig, sort_field: 'view', year: '2023' }),
+    queryKey: [
+      PATH.odd,
+      {
+        ...queryConfig,
+        sort_field: 'view',
+        year: newYear
+      }
+    ],
+    queryFn: () =>
+      filmApis.getListFilm(PATH.odd, {
+        ...queryConfig,
+        sort_field: 'view',
+        year: newYear
+      }),
     staleTime: 3 * 60 * 1000
   })
   const { data: dataSeriesNew } = useQuery({
@@ -43,11 +74,11 @@ const Home = () => {
           content='Web xem phim online miễn phí lớn nhất được cập nhật liên tục mỗi ngày - Cùng tham gia xem phim và thảo luận với hơn 10 triệu thành viên 🎉 tại VPhim ❤️💛💚'
         />
       </Helmet>
-      <div className='container mt-[45px]'>
+      <div className='container mt-[45px] px-4'>
         <Filter />
         <div className='mt-4'>
           {title({ title: 'Phim đề cử', isHiddenArrow: true })}
-          <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
+          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
             <>
               {dataFilmSeries?.items.slice(0, 5).map((item) => <Card key={item._id} data={item} />)}
               {dataFilmOdd?.items.slice(0, 5).map((item) => <Card key={item._id} data={item} />)}
@@ -55,14 +86,14 @@ const Home = () => {
           </div>
         </div>
         <div className='mt-8'>
-          {title({ title: 'Phim lẻ mới cập nhật', link: `${PATH.odd}` })}
-          <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
+          {title({ title: 'Phim lẻ mới cập nhật', titleSmall: 'Phim lẻ mới', link: `${PATH.odd}` })}
+          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
             {dataFilmOddNew?.items.slice(0, 10).map((item) => <Card key={item._id} data={item} />)}
           </div>
         </div>
         <div className='mt-8'>
-          {title({ title: 'Phim bộ mới cập nhật', link: `${PATH.series}` })}
-          <div className='grid grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
+          {title({ title: 'Phim bộ mới cập nhật', titleSmall: 'Phim bộ mới', link: `${PATH.series}` })}
+          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
             {dataFilmSeriesNew?.items.slice(0, 10).map((item) => <Card key={item._id} data={item} />)}
           </div>
         </div>
@@ -74,22 +105,25 @@ export default Home
 
 const title = ({
   title,
+  titleSmall = '',
   isHiddenArrow = false,
   link = ''
 }: {
   title: string
+  titleSmall?: string
   isHiddenArrow?: boolean
   link?: string
 }) => {
   return (
     <div className='flex justify-between items-end pb-1 border-b border-[#1b3c5d]'>
       <h2 className='uppercase text-[#b1a21e] text-2xl font-display font-medium'>
-        <span>{title}</span>
+        <span className='hidden sm:inline'>{title}</span>
+        <span className='inline sm:hidden'>{titleSmall === '' ? title : titleSmall}</span>
       </h2>
       {!isHiddenArrow && (
         <Link
           to={{
-            pathname: `${PATH.list}${link}`,
+            pathname: `${PATH.list}/${link}`,
             search: createSearchParams({
               page: '1',
               sort_field: 'modified.time',
@@ -98,9 +132,10 @@ const title = ({
               year: ''
             }).toString()
           }}
-          className='text-white/80 hover:text-white text-lg p-1'
+          className='text-white/80 hover:text-white text-lg p-1 whitespace-nowrap'
         >
-          Xem tất cả
+          <span className='hidden sm:inline'>Xem tất cả</span>
+          <span className='sm:hidden inline'>Thêm</span>
           <svg
             className='ml-1 w-2 h-[17px] fill-current inline'
             xmlns='http://www.w3.org/2000/svg'

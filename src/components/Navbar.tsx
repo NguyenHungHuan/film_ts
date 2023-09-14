@@ -4,7 +4,7 @@ import { NavLink, createSearchParams } from 'react-router-dom'
 const Navbar = () => {
   return (
     <nav className='text-white'>
-      <ul className='flex items-center'>
+      <ul className='flex items-center font-semibold text-base lg:text-lg'>
         <li>
           <NavLink
             title='Tìm phim miễn phí tại VPhim'
@@ -16,7 +16,7 @@ const Navbar = () => {
               }).toString()
             }}
             className={({ isActive }) =>
-              `font-semibold text-lg hover:text-blue-600 hover:bg-blue-600/20 flex items-center justify-center gap-2 px-2 py-4 ${
+              `hover:text-blue-600 hover:bg-blue-600/20 flex items-center justify-center gap-2 px-2 py-4 ${
                 isActive && ' text-blue-600'
               }`
             }
@@ -32,7 +32,7 @@ const Navbar = () => {
             title='Xem phim hot nhất tại VPhim'
             to={PATH.hot}
             className={({ isActive }) =>
-              `font-semibold text-lg hover:text-blue-600 hover:bg-blue-600/20 px-2 py-4 ${isActive && ' text-blue-600'}`
+              `hover:text-blue-600 hover:bg-blue-600/20 px-2 py-4 ${isActive && ' text-blue-600'}`
             }
           >
             Phim Hot
@@ -42,7 +42,7 @@ const Navbar = () => {
           <NavLink
             title='Xem phim mới nhất tại VPhim'
             to={{
-              pathname: `${PATH.list}${PATH.new}`,
+              pathname: `${PATH.list}/${PATH.new}`,
               search: createSearchParams({
                 page: '1',
                 sort_field: '',
@@ -52,7 +52,7 @@ const Navbar = () => {
               }).toString()
             }}
             className={({ isActive }) =>
-              `font-semibold text-lg hover:text-blue-600 hover:bg-blue-600/20 px-2 py-4 ${isActive && ' text-blue-600'}`
+              `hover:text-blue-600 hover:bg-blue-600/20 px-2 py-4 ${isActive && ' text-blue-600'}`
             }
           >
             Phim Mới
@@ -62,7 +62,7 @@ const Navbar = () => {
           <NavLink
             title='Xem phim bộ hay nhất tại VPhim'
             to={{
-              pathname: `${PATH.list}${PATH.series}`,
+              pathname: `${PATH.list}/${PATH.series}`,
               search: createSearchParams({
                 page: '1',
                 sort_field: '',
@@ -72,7 +72,7 @@ const Navbar = () => {
               }).toString()
             }}
             className={({ isActive }) =>
-              `font-semibold text-lg hover:text-blue-600 hover:bg-blue-600/20 px-2 py-4 ${isActive && ' text-blue-600'}`
+              `hover:text-blue-600 hover:bg-blue-600/20 px-2 py-4 ${isActive && ' text-blue-600'}`
             }
           >
             Phim Bộ
@@ -82,7 +82,7 @@ const Navbar = () => {
           <NavLink
             title='Xem phim lẻ hay nhất tại VPhim'
             to={{
-              pathname: `${PATH.list}${PATH.odd}`,
+              pathname: `${PATH.list}/${PATH.odd}`,
               search: createSearchParams({
                 page: '1',
                 sort_field: '',
@@ -92,7 +92,7 @@ const Navbar = () => {
               }).toString()
             }}
             className={({ isActive }) =>
-              `font-semibold text-lg hover:text-blue-600 hover:bg-blue-600/20 px-2 py-4 ${isActive && ' text-blue-600'}`
+              `hover:text-blue-600 hover:bg-blue-600/20 px-2 py-4 ${isActive && ' text-blue-600'}`
             }
           >
             Phim Lẻ
@@ -102,7 +102,7 @@ const Navbar = () => {
           <NavLink
             title='Xem tv shows hay nhất tại VPhim'
             to={{
-              pathname: `${PATH.list}${PATH.tvShows}`,
+              pathname: `${PATH.list}/${PATH.tvShows}`,
               search: createSearchParams({
                 page: '1',
                 sort_field: '',
@@ -112,7 +112,7 @@ const Navbar = () => {
               }).toString()
             }}
             className={({ isActive }) =>
-              `font-semibold text-lg hover:text-blue-600 hover:bg-blue-600/20 px-2 py-4 ${isActive && ' text-blue-600'}`
+              `hover:text-blue-600 hover:bg-blue-600/20 px-2 py-4 ${isActive && ' text-blue-600'}`
             }
           >
             TV Shows
@@ -122,7 +122,7 @@ const Navbar = () => {
           <NavLink
             title='Xem phim hoạt hình hay nhất tại VPhim'
             to={{
-              pathname: `${PATH.list}${PATH.anime}`,
+              pathname: `${PATH.list}/${PATH.anime}`,
               search: createSearchParams({
                 page: '1',
                 sort_field: '',
@@ -132,7 +132,7 @@ const Navbar = () => {
               }).toString()
             }}
             className={({ isActive }) =>
-              `font-semibold text-lg hover:text-blue-600 hover:bg-blue-600/20 px-2 py-4 ${isActive && ' text-blue-600'}`
+              `hover:text-blue-600 hover:bg-blue-600/20 px-2 py-4 ${isActive && ' text-blue-600'}`
             }
           >
             Hoạt Hình
