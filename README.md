@@ -1,27 +1,60 @@
-# React + TypeScript + Vite
+<h1 align= center><b>🔥 VPhim 🔥</b></h1>
+<h3 align = center> A website to watch movie written in ReactJS </h3>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+The website to watch movie for free using React + Typescript + TailwindCSS + React query.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The website uses the popular responsive design, which can give you the same experience as the original application, whether on a PC or mobile phone, motion or move.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Official Link
 
-- Configure the top-level `parserOptions` property like this:
+https://vphim.vercel.app
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+Api: https://ophim9.cc/
+
+## Technology
+
+- Vite
+- Typescript
+- React Query
+- TailwindCSS
+- Other libraries
+
+## Features
+
+- Search/Filter/Sort/Pagination movies
+- Watch movies HD
+- Fully responsive
+
+## Screenshots
+
+### Home
+![Home](/assets/img/home.webp)
+
+### Hot
+![Genres](/assets/img/hot.webp)
+
+### Search
+![New](/assets/img/search.webp)
+
+### Detail
+![Top](/assets/img/detail.webp)
+
+### Movie
+![Detail](/assets/img/watch.webp)
+
+## Development
+
+To get started just pull the repo and run the following
+
+```bash
+yarn
+yarn build
+yarn dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Summary
+
+If you seem like this project is helpful for you, give it a 🌟 and share it to your friends 💖
