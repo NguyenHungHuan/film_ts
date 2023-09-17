@@ -92,7 +92,7 @@ function LoadingPage() {
     <div role='status' className='flex h-screen flex-col items-center justify-center gap-2'>
       <svg
         aria-hidden='true'
-        className='mr-2 h-16 w-16 animate-spin fill-primary text-white'
+        className='mr-2 h-16 w-16 animate-spin fill-blue-600 text-white'
         viewBox='0 0 100 101'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'

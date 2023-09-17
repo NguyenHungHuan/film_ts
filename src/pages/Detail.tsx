@@ -32,7 +32,7 @@ const Detail = () => {
         style={{
           backgroundImage: `url('https://img.hiephanhthienha.com/uploads/movies/${dataFilm.item.poster_url}')`
         }}
-      ></div>
+      />
       <div className='container px-4 -mt-[360px] pt-3 relative z-10'>
         <div className='flex-col md:flex-row flex gap-11 md:gap-[64px]'>
           <div className='flex-shrink-0 flex flex-col items-center'>

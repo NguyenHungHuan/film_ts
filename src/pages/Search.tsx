@@ -68,6 +68,21 @@ const Search = () => {
             Không tìm thấy phim với kết quả tìm kiếm.
           </p>
         )}
+        {!dataSearch && (
+          <div className='mt-4'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
+              {Array(10)
+                .fill(0)
+                .map((_, i) => (
+                  <div key={i} className='flex flex-col animate-pulse'>
+                    <div className='h-[210px] sm:h-[384px] w-full mb-1 bg-slate-700' />
+                    <div className='h-2 w-[80%] mt-1 rounded-full bg-slate-700' />
+                    <div className='h-2 w-[60%] mt-2 rounded-full bg-slate-700' />
+                  </div>
+                ))}
+            </div>
+          </div>
+        )}
       </div>
     </>
   )

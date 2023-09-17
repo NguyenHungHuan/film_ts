@@ -80,21 +80,53 @@ const Home = () => {
           {title({ title: 'Phim đề cử', isHiddenArrow: true })}
           <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
             <>
-              {dataFilmSeries?.items.slice(0, 5).map((item) => <Card key={item._id} data={item} />)}
-              {dataFilmOdd?.items.slice(0, 5).map((item) => <Card key={item._id} data={item} />)}
+              {dataFilmSeries ? (
+                dataFilmSeries.items.slice(0, 5).map((item) => <Card key={item._id} data={item} />)
+              ) : (
+                <>
+                  {Array(5)
+                    .fill(0)
+                    .map((_, i) => (
+                      <div key={i} className='flex flex-col animate-pulse'>
+                        <div className='h-[210px] sm:h-[384px] w-full mb-1 bg-slate-700' />
+                        <div className='h-2 w-[80%] mt-1 rounded-full bg-slate-700' />
+                        <div className='h-2 w-[60%] mt-2 rounded-full bg-slate-700' />
+                      </div>
+                    ))}
+                </>
+              )}
+              {dataFilmOdd ? (
+                dataFilmOdd.items.slice(0, 5).map((item) => <Card key={item._id} data={item} />)
+              ) : (
+                <>
+                  {Array(5)
+                    .fill(0)
+                    .map((_, i) => (
+                      <div key={i} className='flex flex-col animate-pulse'>
+                        <div className='h-[210px] sm:h-[384px] w-full mb-1 bg-slate-700' />
+                        <div className='h-2 w-[80%] mt-1 rounded-full bg-slate-700' />
+                        <div className='h-2 w-[60%] mt-2 rounded-full bg-slate-700' />
+                      </div>
+                    ))}
+                </>
+              )}
             </>
           </div>
         </div>
         <div className='mt-8'>
           {title({ title: 'Phim lẻ mới cập nhật', titleSmall: 'Phim lẻ mới', link: `${PATH.odd}` })}
           <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
-            {dataFilmOddNew?.items.slice(0, 10).map((item) => <Card key={item._id} data={item} />)}
+            {dataFilmOddNew
+              ? dataFilmOddNew.items.slice(0, 10).map((item) => <Card key={item._id} data={item} />)
+              : skeleton()}
           </div>
         </div>
         <div className='mt-8'>
           {title({ title: 'Phim bộ mới cập nhật', titleSmall: 'Phim bộ mới', link: `${PATH.series}` })}
           <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-[22px] py-3'>
-            {dataFilmSeriesNew?.items.slice(0, 10).map((item) => <Card key={item._id} data={item} />)}
+            {dataFilmSeriesNew
+              ? dataFilmSeriesNew.items.slice(0, 10).map((item) => <Card key={item._id} data={item} />)
+              : skeleton()}
           </div>
         </div>
       </div>
@@ -148,3 +180,17 @@ const title = ({
     </div>
   )
 }
+
+const skeleton = () => (
+  <>
+    {Array(10)
+      .fill(0)
+      .map((_, i) => (
+        <div key={i} className='flex flex-col animate-pulse'>
+          <div className='h-[210px] sm:h-[384px] w-full mb-1 bg-slate-700' />
+          <div className='h-2 w-[80%] mt-1 rounded-full bg-slate-700' />
+          <div className='h-2 w-[60%] mt-2 rounded-full bg-slate-700' />
+        </div>
+      ))}
+  </>
+)
