@@ -25,7 +25,8 @@ const Filter = () => {
     navigate({
       pathname: `${PATH.list}/${value.target.value}`,
       search: createSearchParams({
-        ...queryConfig
+        ...queryConfig,
+        page: '1'
       }).toString()
     })
   }
@@ -35,6 +36,7 @@ const Filter = () => {
       pathname: `${PATH.list}/${type ? type : 'phim-moi'}`,
       search: createSearchParams({
         ...queryConfig,
+        page: '1',
         category: value.target.value
       }).toString()
     })
@@ -45,6 +47,7 @@ const Filter = () => {
       pathname: `${PATH.list}/${type ? type : 'phim-moi'}`,
       search: createSearchParams({
         ...queryConfig,
+        page: '1',
         country: value.target.value
       }).toString()
     })
@@ -55,6 +58,7 @@ const Filter = () => {
       pathname: `${PATH.list}/${type ? type : 'phim-moi'}`,
       search: createSearchParams({
         ...queryConfig,
+        page: '1',
         year: value.target.value
       }).toString()
     })
@@ -65,6 +69,7 @@ const Filter = () => {
       pathname: `${PATH.list}/${type ? type : 'phim-moi'}`,
       search: createSearchParams({
         ...queryConfig,
+        page: '1',
         sort_field: value.target.value
       }).toString()
     })
