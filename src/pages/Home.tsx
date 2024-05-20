@@ -30,7 +30,8 @@ const Home = () => {
         sort_field: 'view',
         year: newYear
       }),
-    staleTime: 3 * 60 * 1000
+    staleTime: 3 * 60 * 1000,
+    keepPreviousData: true
   })
   const { data: dataOdd } = useQuery({
     queryKey: [
@@ -47,17 +48,20 @@ const Home = () => {
         sort_field: 'view',
         year: newYear
       }),
-    staleTime: 3 * 60 * 1000
+    staleTime: 3 * 60 * 1000,
+    keepPreviousData: true
   })
   const { data: dataSeriesNew } = useQuery({
     queryKey: [PATH.series, queryConfig],
     queryFn: () => filmApis.getListFilm(PATH.series, queryConfig),
-    staleTime: 3 * 60 * 1000
+    staleTime: 3 * 60 * 1000,
+    keepPreviousData: true
   })
   const { data: dataOddNew } = useQuery({
     queryKey: [PATH.odd, queryConfig],
     queryFn: () => filmApis.getListFilm(PATH.odd, queryConfig),
-    staleTime: 3 * 60 * 1000
+    staleTime: 3 * 60 * 1000,
+    keepPreviousData: true
   })
 
   const dataFilmSeries = dataSeries?.data.data

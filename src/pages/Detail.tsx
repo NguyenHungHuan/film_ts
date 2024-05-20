@@ -38,10 +38,12 @@ const Detail = () => {
           <div className='flex-shrink-0 flex flex-col items-center'>
             <img
               title={dataFilm.item.name}
+              sizes='(max-width: 282px)'
               src={`https://img.ophim1.com/uploads/movies/${dataFilm.item.thumb_url}`}
+              srcSet={`https://img.ophim1.com/uploads/movies/${dataFilm.item.thumb_url} 282px`}
+              width={282}
               alt={dataFilm.item.name}
               className='w-[282px] h-[432px] object-cover'
-              loading='eager'
             />
             {dataFilm.item.episode_current.toLowerCase() === 'trailer' ? (
               <button
