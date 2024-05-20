@@ -126,7 +126,7 @@ const Film = () => {
               Về trang giới thiệu phim
             </Link>
           </div>
-          <div className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-10 xl:grid-cols-12 gap-3 max-h-[250px] overflow-auto pr-2'>
+          <div className='flex items-center flex-wrap gap-x-3 gap-y-4 max-h-[250px] overflow-auto pb-2 pr-[6px]'>
             {dataFilm.item.episodes
               .find((item) => item.server_name === nameServer)
               ?.server_data.map((item, index) => (
@@ -136,7 +136,7 @@ const Film = () => {
                   disabled={item.link_embed === episode}
                   key={index}
                   className={classNames(
-                    'flex-shrink-0 text-white whitespace-nowrap overflow-hidden text-lg h-[40px] px-4 rounded',
+                    'flex-shrink-0 text-white whitespace-nowrap overflow-hidden text-lg min-w-[99px] h-[40px] px-4 rounded',
                     {
                       'bg-green-400': item.link_embed !== episode,
                       'bg-green-400/40': item.link_embed === episode
