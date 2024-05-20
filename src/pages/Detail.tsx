@@ -30,7 +30,7 @@ const Detail = () => {
       <div
         className='h-[600px] -mt-[56px] bg-cover bg-no-repeat bg-[50%_0] relative before:content-[""] before:absolute before:w-full before:top-0 before:bottom-0 before:bg-[#020d18bf]'
         style={{
-          backgroundImage: `url('https://img.hiephanhthienha.com/uploads/movies/${dataFilm.item.poster_url}')`
+          backgroundImage: `url('https://img.ophim1.com/uploads/movies/${dataFilm.item.poster_url}')`
         }}
       />
       <div className='container px-4 -mt-[360px] pt-3 relative z-10'>
@@ -38,7 +38,7 @@ const Detail = () => {
           <div className='flex-shrink-0 flex flex-col items-center'>
             <img
               title={dataFilm.item.name}
-              src={`https://img.hiephanhthienha.com/uploads/movies/${dataFilm.item.thumb_url}`}
+              src={`https://img.ophim1.com/uploads/movies/${dataFilm.item.thumb_url}`}
               alt={dataFilm.item.name}
               className='w-[282px] h-[432px] object-cover'
               loading='eager'

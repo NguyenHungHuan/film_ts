@@ -11,7 +11,7 @@ const Home = () => {
   const queryConfig = useQueryConfig()
   const newYear = useMemo(
     () =>
-      new Date().getMonth() + 1 < 4 ? (new Date().getFullYear() - 1).toString() : new Date().getFullYear().toString(),
+      new Date().getMonth() + 1 < 2 ? (new Date().getFullYear() - 1).toString() : new Date().getFullYear().toString(),
     []
   )
 
